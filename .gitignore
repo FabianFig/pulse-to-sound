@@ -1,0 +1,36 @@
+# environment
+.env
+.env.*
+.envrc
+*.env
+
+# virtual env
+.myenv/
+.venv/
+venv/
+env/
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.egg-info/
+dist/
+build/
+
+# activity data 
+data/
+*.fit
+*.gpx
+*.csv
+*.json
+
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
