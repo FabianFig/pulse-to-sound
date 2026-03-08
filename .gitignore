@@ -3,6 +3,7 @@
 .env.*
 .envrc
 *.env
+!.env.template
 
 # virtual env
 .myenv/
@@ -24,7 +25,8 @@ data/
 *.gpx
 *.csv
 *.json
-
+data/raw/
+data/processed/
 
 # OS
 .DS_Store

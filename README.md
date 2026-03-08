@@ -16,8 +16,8 @@ Transforms Strava activity data into generative ambient sound and live replay vi
 
 ## Roadmap
 
-- [ ] Strava API ingestion
-- [ ] PostgreSQL schema + loader
+- [x] Strava API ingestion
+- [x] PostgreSQL schema + loader
 - [ ] FastAPI basic endpoints
 - [ ] Basic frontend
 - [ ] WebSocket replay engine
