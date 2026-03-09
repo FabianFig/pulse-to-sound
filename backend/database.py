@@ -13,7 +13,6 @@ conn = psycopg2.connect(
     )
 cur = conn.cursor()
 
-## ---- LAYER 2 ----
 
 ### Activities 
 activity_path = "data/raw/activities"
@@ -61,7 +60,7 @@ conn.commit()
 streams_path = "data/raw/streams"
 s_filenames = os.listdir(streams_path)
 
-# countners for tracking ingest progress and confirming the bulk load worked
+# counters for tracking ingest progress and confirming the bulk load worked
 processed_stream_files = 0
 inserted_stream_rows = 0
 
@@ -113,8 +112,8 @@ for file in s_filenames:
     if not lng_data:
         lng_data = [None] * n
 
-    # Convert columnar arrays into row tuples for the insert
-    # zip() to alight points by index across each stream
+    # converting columnar arrays into row tuples for the insert
+    # zip() to align the points by index across each stream
     rows_to_insert = [
         (activity_id, t, alt, hr, vel, lat, lng)
         for t, alt, hr, vel, lat, lng in zip(time_data, altitude_data, heartrate_data, velocity_data, lat_data, lng_data)
@@ -123,7 +122,7 @@ for file in s_filenames:
     if not rows_to_insert:
         continue
 
-    # execute_values performs one bulk insert per file (much faster than row-by-row execute).
+    # execute_values performs one bulk insert per file (much faster than row-by-row execute)
     execute_values(cur, stream_insert_query, rows_to_insert)
     processed_stream_files += 1
     inserted_stream_rows += len(rows_to_insert)
